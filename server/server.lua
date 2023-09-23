@@ -17,7 +17,7 @@ Citizen.CreateThread(function()
                         table.insert(notified, src)
                     else
                         local amount = math.floor(v.amount * tonumber('1.' .. v.interest))
-                        Player.Functions.RemoveMoney('bank', amount / v.totalpayments)
+                        Player.Functions.RemoveMoney('bank', math.floor(amount / v.totalpayments))
                         exports['qb-management']:AddMoney(Config.JobName, amount / v.totalpayments)
                         TriggerClientEvent('QBCore:Notify', src, string.gsub(Locale.Success.paid_off, 'amount', v.amount), 'success')
                         if v.paymentsleft - 1 <= 0 then
